@@ -336,6 +336,16 @@
     background-color: #f0f1f2;
 }
 
+.sec3_slide .swiper-sec .myCategorySlider {
+    display: none;
+    transition: all 0.5s;
+}
+
+.sec3_slide .swiper-sec .myCategorySlider.on {
+    display: block;
+    transition: all 0.5s;
+}
+
 .sec3_slide .swiper {
     padding: 32px 0;
 }
