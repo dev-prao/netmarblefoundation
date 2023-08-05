@@ -17,6 +17,7 @@
     <!--    여기에 css 넣어주세요-->
     <link rel="stylesheet" href="./css/default.css">
     <link rel="stylesheet" href="./css/style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 
 </head>
@@ -145,7 +146,7 @@
         </div>
         <div class="sec1">
             <div class="wrap">
-                <div class="sec_title">
+                <div class="sec_title" data-aos="fade-up">
                     <h3>문화를 만들고 인재를 키우고<br> 마음을 나눕니다</h3>
                     <span class="title_right">
                     <p>넷마블문화재단은 문화적 가치 확산을 통해 우리 사회의 미래 경쟁력을 높여 가고자<br> 다양한 공익 활동을 전개해 나가고 있습니다.</p>
@@ -153,7 +154,7 @@
                 </div>
                 <div class="sec1_content">
                     <ul class="sec1_ul">
-                        <li>
+                        <li data-aos="fade-up" data-aos-delay="150">
                             <div class="sec1_cont_img"><img src="./image/sec1_1.jpg" alt="문화만들기"></div>
                             <div class="sec1_cont_txt">
                                 <h4>문화 만들기 <span>></span></h4>
@@ -162,8 +163,8 @@
                                 </p>
                             </div>
                         </li>
-                        <li>
-                            <div class="sec1_cont_img"><img src="./image/sec1_1.jpg" alt="문화만들기"></div>
+                        <li data-aos="fade-up" data-aos-delay="300">
+                            <div class="sec1_cont_img"><img src="./image/sec1_2.jpg" alt="문화만들기"></div>
                             <div class="sec1_cont_txt">
                                 <h4>인재 키우기 <span>></span></h4>
                                 <p>
@@ -171,8 +172,8 @@
                                 </p>
                             </div>
                         </li>
-                        <li>
-                            <div class="sec1_cont_img"><img src="./image/sec1_1.jpg" alt="문화만들기"></div>
+                        <li data-aos="fade-up" data-aos-delay="450">
+                            <div class="sec1_cont_img"><img src="./image/sec1_3.jpg" alt="문화만들기"></div>
                             <div class="sec1_cont_txt">
                                 <h4>마음 나누기 <span>></span></h4>
                                 <p>
@@ -506,7 +507,12 @@
     </footer>
 </div>
 <!--여기에 js 넣어주세요-->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="./js/aos.js"></script>
+<script>
+    AOS.init();
+</script>
 <script src="./js/swiper.js"></script>
 <script src="./js/sec3.js"></script>
 <script src="./js/gnb.js"></script>

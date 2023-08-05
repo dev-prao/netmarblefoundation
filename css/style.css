@@ -4,7 +4,6 @@
     width: 1280px;
     margin: 0 auto;
     padding: 180px 32px;
-    -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
 
@@ -199,8 +198,8 @@
 .sec1 .sec_title h3::after {
     content: '';
     position: absolute;
-    top: 305px;
-    left: 33px;
+    top: 130px;
+    left: 0;
     width: 70px;
     height: 5px;
     background-color: #ffd44a;
@@ -266,7 +265,6 @@
     width: 1114px;
     height: 338px;
     padding: 102px 520px 102px 104px;
-    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     background-color: #ffd44a;
 }
@@ -382,7 +380,6 @@
 
 .sec3_slide .swiper-slide .txtbox {
     padding: 32px;
-    -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
 
@@ -437,7 +434,6 @@ footer {
     width: 1280px;
     margin: 0 auto;
     padding: 0 20px;
-    -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
 
