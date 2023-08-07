@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev",
         },
+        allowTouchMove: false,
         on: {
             init: function () {
                 var progressBar = document.querySelector(".swiper-progress-bar");
