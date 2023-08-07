@@ -1,61 +1,53 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Swiper 객체를 생성합니다.
-    const progressCircle = document.querySelector(".autoplay-progress svg");
-    const progressContent = document.querySelector(".autoplay-progress span");
-    var mySwiper1 = new Swiper('.mySlideSwiper', {
-        slidesPerView: 1,
-        effect: 'slide',
-        centeredSlides: true,
-        loopAdditionalSlides: 0,
-        loopFillGroupWithBlank: false,
+    var swiper = new Swiper(".swiper-container", {
         autoplay: {
             delay: 5000,
-            disableOnInteraction: false
+            disableOnInteraction: false,
         },
+        speed: 500,
         loop: true,
-        navigation: {   // 버튼
-            prevEl: ".swiper-button-prev",
-            nextEl: ".swiper-button-next",
-        },
         pagination: {
-            el: '.swiper-pagination', // pagination 요소를 지정합니다.
-            clickable: false,          // 사용자가 pagination을 클릭할 수 있도록 합니다.
-            type: 'fraction',
-
+            el: ".swiper-pagination",
+            type: "fraction",
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
         },
         on: {
-            autoplayTimeLeft(s, time, progress) {
-                progressCircle.style.setProperty("--progress", 1 - progress);
-                progressContent.textContent = `${Math.ceil(time / 1000)}s`;
-            }
-        }
-
+            init: function () {
+                var progressBar = document.querySelector(".swiper-progress-bar");
+                progressBar.classList.remove("animate");
+                progressBar.classList.remove("active");
+                progressBar.classList.add("animate");
+                progressBar.classList.add("active");
+            },
+            slideChangeTransitionStart: function () {
+                var progressBar = document.querySelector(".swiper-progress-bar");
+                progressBar.classList.remove("animate");
+                progressBar.classList.remove("active");
+                progressBar.classList.add("active");
+            },
+            slideChangeTransitionEnd: function () {
+                var progressBar = document.querySelector(".swiper-progress-bar");
+                progressBar.classList.add("animate");
+            },
+        },
     });
-
-    function updateProgressBar(progress) {
-        var timeBar = document.querySelector(".time-bar");
-        timeBar.style.width = progress + "%";
-    }
 
     var mySwiper2 = new Swiper('.myCategorySlider', {
         slidesPerView: 3,
-        spaceBetween: 30,    // 슬라이드 사이 여백
+        spaceBetween: 30,
         effect: 'slide',
         centeredSlides: false,
         loopAdditionalSlides: 0,
         loopFillGroupWithBlank: false,
         loop: false,
-        pagination: {
-            el: '.swiper-pagination', // pagination 요소를 지정합니다.
-            clickable: false,          // 사용자가 pagination을 클릭할 수 있도록 합니다.
-            type: 'fraction',
-        },
         scrollbar: {
             el: ".swiper-scrollbar",
             hide: true,
         },
         observer: true,
-        observeParents: true
-
+        observeParents: true,
     });
-})
+});
