@@ -211,7 +211,7 @@
 
 .banner1 {
     position: absolute;
-    top: -50px;
+    top: -150px;
     right: 0;
     width: 752px; /* 이미지의 가로 크기를 설정 (원하는 크기로 조정) */
     height: 914px; /* 세로 크기를 자동으로 조정하여 비율을 유지 */
