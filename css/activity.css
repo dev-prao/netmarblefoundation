@@ -395,6 +395,7 @@
 }
 
 #app.pc .activity02-cont3 .banner8 {
+    width: 100%;
     height: 600px;
 }
 
@@ -421,7 +422,9 @@
 }
 
 #app.pc .activity03-cont2 .banner10 {
+    width: 100%;
     height: 600px;
+    object-fit: cover;
 }
 
 #app.pc .activity03-cont2 .btn-site {
