@@ -12,4 +12,7 @@
     <orderEntry type="library" name="aos" level="application" />
     <orderEntry type="library" name="swiper" level="application" />
   </component>
+  <component name="SonarLintModuleSettings">
+    <option name="uniqueId" value="92398e9d-e56a-4927-9487-dd432378589a" />
+  </component>
 </module>
