@@ -88,7 +88,7 @@
                             <input type="text" class="form-control" placeholder="이름" name="memberName" maxlength="20" />
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="생년월일" name="birthDay" maxlength="20" />
+                            <input type="text" class="form-control" placeholder="생년월일" name="birthday" maxlength="20" />
                         </div>
                         <div class="form-group">
                             <input type="tel" class="form-control" placeholder="전화번호" name="tel" maxlength="20" />

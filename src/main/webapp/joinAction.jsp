@@ -13,7 +13,7 @@
 <jsp:setProperty name="member" property="memberId"/>
 <jsp:setProperty name="member" property="memberPassword"/>
 <jsp:setProperty name="member" property="memberName"/>
-<jsp:setProperty name="member" property="birthDay"/>
+<jsp:setProperty name="member" property="birthday"/>
 <jsp:setProperty name="member" property="tel"/>
 <html>
 <head>
@@ -35,7 +35,7 @@
     }
 
     if (member.getMemberId() == null || member.getMemberPassword() == null || member.getMemberName() == null
-            || member.getBirthDay() == null || member.getTel() == null) {
+            || member.getBirthday() == null || member.getTel() == null) {
         script.println("<script>");
         script.println("alert('누락된 항목이 있습니다.')");
         script.println("history.back()");
@@ -46,7 +46,7 @@
     int result = memberDAO.join(member);
 
     if (member.getMemberId() != null && member.getMemberPassword() != null && member.getMemberName() != null
-            && member.getBirthDay() != null && member.getTel() != null && result == -1) {
+            && member.getBirthday() != null && member.getTel() != null && result == -1) {
 		script.println("<script>");
 		script.println("alert('사용할 수 없는 아이디입니다.')");
 		script.println("history.back()");
@@ -54,7 +54,7 @@
     }
 
 	if (member.getMemberId() != null && member.getMemberPassword() != null && member.getMemberName() != null
-            && member.getBirthDay() != null && member.getTel() != null && result != -1) {
+            && member.getBirthday() != null && member.getTel() != null && result != -1) {
 		session.setAttribute("memberId",member.getMemberId());
         script.println("<script>");
         script.println("location.href = 'main.jsp'");

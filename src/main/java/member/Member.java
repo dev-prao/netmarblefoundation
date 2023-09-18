@@ -5,7 +5,7 @@ public class Member {
 	private String memberId;
 	private String memberPassword;
 	private String memberName;
-	private String birthDay;
+	private String birthday;
 	private String tel;
 
 	public String getMemberId() {
@@ -32,12 +32,12 @@ public class Member {
 		this.memberName = memberName;
 	}
 
-	public String getBirthDay() {
-		return birthDay;
+	public String getBirthday() {
+		return birthday;
 	}
 
-	public void setBirthDay(String birthDay) {
-		this.birthDay = birthDay;
+	public void setBirthday(String birthday) {
+		this.birthday = birthday;
 	}
 
 	public String getTel() {

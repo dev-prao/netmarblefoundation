@@ -49,7 +49,7 @@ public class MemberDAO {
 			pstmt.setString(1, member.getMemberId());
 			pstmt.setString(2, member.getMemberPassword());
 			pstmt.setString(3, member.getMemberName());
-			pstmt.setString(4, member.getBirthDay());
+			pstmt.setString(4, member.getBirthday());
 			pstmt.setString(5, member.getTel());
 			return pstmt.executeUpdate();
 		} catch (Exception e) {
