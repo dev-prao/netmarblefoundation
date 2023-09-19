@@ -47,8 +47,6 @@ L
 src/main/webapp/js/swiper.js,2/6/26210d5593cb1a43b38032d037531d0a309390c4
 O
 src/main/webapp/WEB-INF/web.xml,2/e/2e22b6edd746fa3dc40ad7276c87c8d87d72a392
-e
-5src/main/java/com/example/netmarble/HelloServlet.java,d/3/d35be2b907b152719300ae1a531939c5383971f6
 I
 src/main/webapp/index.jsp,8/e/8e6d3b70c9f5b02570779b0441540d45eceb0ded
 7

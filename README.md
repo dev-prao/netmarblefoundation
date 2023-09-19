@@ -23,6 +23,46 @@
 ## 📌 주요 기능
 - 추가 예정
 
+## SQL Script
+```
+CREATE TABLE BOARD (
+boardId INT(11) PRIMARY KEY ,
+boardTitle VARCHAR(50),
+memberId VARCHAR(20),
+boardDate DATETIME,
+boardContent VARCHAR(2048),
+boardAvailable INT(11),
+boardCount INT(11),
+likeCount INT(11)
+);
+
+CREATE TABLE COMMENT (
+commentContent VARCHAR(300),
+commentId INT(11) PRIMARY KEY ,
+memberId VARCHAR(20),
+commentAvailable INT(11),
+commentDate DATETIME,
+boardId INT(11),
+FOREIGN KEY (boardId) REFERENCES BOARD(boardId)
+);
+
+CREATE TABLE LIKEY (
+memberId VARCHAR(20) PRIMARY KEY ,
+boardId INT(11),
+FOREIGN KEY (boardId) REFERENCES BOARD(boardId)
+);
+
+CREATE TABLE MEMBER (
+memberId VARCHAR(20) PRIMARY KEY ,
+memberPassword VARCHAR(20) NOT NULL ,
+memberName VARCHAR(20) NOT NULL ,
+birthday VARCHAR(10),
+tel varchar(20)
+);
+```
+
+
+
 ## 🏛 커밋 컨벤션
 ### 🧬 타입
 <mark>"태그: 제목"의 형태, : 뒤에만 space(공백)가 있음에 유의할 것</mark>

@@ -30,7 +30,7 @@
 	if (memberId != null) {
         script.println("<script>");
         script.println("alert('이미 로그인 되어있습니다.')");
-        script.println("location.href = 'main.jsp'");
+        script.println("location.href = 'index.jsp'");
         script.println("</script>");
     }
 
@@ -57,7 +57,7 @@
             && member.getBirthday() != null && member.getTel() != null && result != -1) {
 		session.setAttribute("memberId",member.getMemberId());
         script.println("<script>");
-        script.println("location.href = 'main.jsp'");
+        script.println("location.href = 'index.jsp'");
         script.println("</script>");
     }
 %>

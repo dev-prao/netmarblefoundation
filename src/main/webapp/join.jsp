@@ -1,11 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: prao
-  Date: 2023/09/14
-  Time: 2:33 PM
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType = "text/html; charset=UTF-8" pageEncoding = "UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,50 +16,80 @@
     <meta http-equiv="imagetoolbar" content="no">
 
     <!--    여기에 css 넣어주세요-->
-    <link rel="stylesheet" href="./css/default.css">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="/css/default.css">
+    <link rel="stylesheet" href="/css/style.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 </head>
 <body>
+<%
+    String memberId = null;
+    if (session.getAttribute("memberId") != null) {
+        memberId = (String)session.getAttribute("memberId");
+    }
+    //현재 페이지가 몇번째 페이지 인가
+    int pageNumber = 1;//기본적으로 1페이지
+    if (request.getParameter("pageNumber") != null)
+        pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
+%>
 <div class="main">
     <header class="header">
         <div class="gnb">
-            <div class="logo_white on"><a href="./index.html"><img src="./image/logo_white.png" alt="netmable"></a>
+            <div class="logo_white on"><a href="/index.jsp"><img src="/image/logo_white.png" alt="netmable"></a>
             </div>
-            <div class="logo"><a href="./index.html"><img src="./image/logo.png" alt="netmable"></a></div>
+            <div class="logo"><a href="/index.jsp"><img src="/image/logo.png" alt="netmable"></a></div>
             <div class="gnb_back">
                 <ul class="gnb_ul flx">
                     <li>
                         <a href="#" class="lnb_title">재단소개</a>
                         <ul class="lnb">
-                            <li><a href="./information.html">넷마블문화재단</a></li>
-                            <li><a href="./intro.html">오시는 길</a></li>
+                            <li><a href="information.html">넷마블문화재단</a></li>
+                            <li><a href="intro.html">오시는 길</a></li>
                         </ul>
                     </li>
                     <li>
                         <a href="#" class="lnb_title">재단활동</a>
                         <ul class="lnb">
-                            <li><a href="./activity1.html">문화 만들기</a></li>
-                            <li><a href="./activity2.html">인재 키우기</a></li>
-                            <li><a href="./activity3.html">마음 나누기</a></li>
+                            <li><a href="activity1.html">문화 만들기</a></li>
+                            <li><a href="activity2.html">인재 키우기</a></li>
+                            <li><a href="activity3.html">마음 나누기</a></li>
                         </ul>
                     </li>
                     <li>
                         <a href="#" class="lnb_title">재단소식</a>
                         <ul class="lnb">
-                            <li><a href="./notice.html">공지사항</a></li>
-                            <li><a href="./notice.html">뉴스룸</a></li>
-                            <li><a href="./notice.html">소셜 미디어</a></li>
+                            <li><a href="#">공지사항</a></li>
+                            <li><a href="#">뉴스룸</a></li>
+                            <li><a href="#">소셜 미디어</a></li>
                         </ul>
                     </li>
+                    <%
+                        if (memberId == null) {
+                    %>
                     <li>
                         <a href="#" class="lnb_title">재단회원</a>
                         <ul class="lnb">
                             <li><a href="login.jsp">로그인</a></li>
                             <li><a href="join.jsp">회원가입</a></li>
+                            <li><a href="board.jsp">자유게시판</a></li>
                         </ul>
                     </li>
+                    <%
+                        }
+                    %>
+                    <%
+                        if (memberId != null) {
+                    %>
+                    <li>
+                        <a href="#" class="lnb_title">회원관리</a>
+                        <ul class="lnb">
+                            <li><a href="logoutAction.jsp">로그아웃</a></li>
+                            <li><a href="board.jsp">자유게시판</a></li>
+                        </ul>
+                    </li>
+                    <%
+                        }
+                    %>
                 </ul>
             </div>
         </div>
@@ -79,21 +102,22 @@
                     <form method="post" action="joinAction.jsp"> <!-- "loginAction.jsp" 오타 주의: "loginAction.jsp"로 수정 -->
                         <h3>회원가입 화면</h3>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="아이디" name="memberId" maxlength="20" />
+                            <input type="text" class="form-control" placeholder="아이디" name="memberId" maxlength="20"/>
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" placeholder="비밀번호" name="memberPassword" maxlength="20" />
+                            <input type="password" class="form-control" placeholder="비밀번호" name="memberPassword"
+                                   maxlength="20"/>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="이름" name="memberName" maxlength="20" />
+                            <input type="text" class="form-control" placeholder="이름" name="memberName" maxlength="20"/>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="생년월일" name="birthday" maxlength="20" />
+                            <input type="text" class="form-control" placeholder="생년월일" name="birthday" maxlength="20"/>
                         </div>
                         <div class="form-group">
-                            <input type="tel" class="form-control" placeholder="전화번호" name="tel" maxlength="20" />
+                            <input type="tel" class="form-control" placeholder="전화번호" name="tel" maxlength="20"/>
                         </div>
-                        <input type="submit" class="btn btn-primary form-control" value="회원가입" />
+                        <input type="submit" class="btn btn-primary form-control" value="회원가입"/>
                     </form>
                 </div>
             </div>

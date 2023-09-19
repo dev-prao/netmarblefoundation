@@ -1,13 +1,6 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: prao
-  Date: 2023/09/14
-  Time: 3:41 PM
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType = "text/html; charset=UTF-8" pageEncoding = "UTF-8" %>
 <!DOCTYPE html>
-<html lang="ko">
+<html>
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -23,11 +16,21 @@
   <meta http-equiv="imagetoolbar" content="no">
 
   <!--    여기에 css 넣어주세요-->
-  <link rel="stylesheet" href="./css/default.css">
-  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="/css/default.css">
+  <link rel="stylesheet" href="/css/style.css">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-
+  <link rel="stylesheet" href="/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/custom.css">
+  <style type="text/css">
+    a, a:hover {
+      color: #000000;
+      text-decoration: none;
+    }
+    .container {
+      margin-top: 100px; /* 페이지 상단과의 간격 설정 */
+    }
+  </style>
 </head>
 <body>
 <%
@@ -35,35 +38,40 @@
   if (session.getAttribute("memberId") != null) {
     memberId = (String) session.getAttribute("memberId");
   }
+  //현재 페이지가 몇번째 페이지 인가
+  int pageNumber = 1;//기본적으로 1페이지
+  if (request.getParameter("pageNumber") != null)
+    pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
 %>
 <div class="main">
   <header class="header">
     <div class="gnb">
-      <div class="logo_white on"><a href="./index.html"><img src="./image/logo_white.png" alt="netmable"></a></div>
-      <div class="logo"><a href="./index.html"><img src="./image/logo.png" alt="netmable"></a></div>
+      <div class="logo_white on"><a href="/index.jsp"><img src="/image/logo_white.png" alt="netmable"></a>
+      </div>
+      <div class="logo"><a href="/index.jsp"><img src="/image/logo.png" alt="netmable"></a></div>
       <div class="gnb_back">
         <ul class="gnb_ul flx">
           <li>
             <a href="#" class="lnb_title">재단소개</a>
             <ul class="lnb">
-              <li><a href="./information.html">넷마블문화재단</a></li>
-              <li><a href="./intro.html">오시는 길</a></li>
+              <li><a href="information.html">넷마블문화재단</a></li>
+              <li><a href="intro.html">오시는 길</a></li>
             </ul>
           </li>
           <li>
             <a href="#" class="lnb_title">재단활동</a>
             <ul class="lnb">
-              <li><a href="./activity1.html">문화 만들기</a></li>
-              <li><a href="./activity2.html">인재 키우기</a></li>
-              <li><a href="./activity3.html">마음 나누기</a></li>
+              <li><a href="activity1.html">문화 만들기</a></li>
+              <li><a href="activity2.html">인재 키우기</a></li>
+              <li><a href="activity3.html">마음 나누기</a></li>
             </ul>
           </li>
           <li>
             <a href="#" class="lnb_title">재단소식</a>
             <ul class="lnb">
-              <li><a href="./notice.html">공지사항</a></li>
-              <li><a href="./notice.html">뉴스룸</a></li>
-              <li><a href="./notice.html">소셜 미디어</a></li>
+              <li><a href="#">공지사항</a></li>
+              <li><a href="#">뉴스룸</a></li>
+              <li><a href="#">소셜 미디어</a></li>
             </ul>
           </li>
           <%
@@ -74,6 +82,7 @@
             <ul class="lnb">
               <li><a href="login.jsp">로그인</a></li>
               <li><a href="join.jsp">회원가입</a></li>
+              <li><a href="board.jsp">자유게시판</a></li>
             </ul>
           </li>
           <%
@@ -86,6 +95,7 @@
             <a href="#" class="lnb_title">회원관리</a>
             <ul class="lnb">
               <li><a href="logoutAction.jsp">로그아웃</a> </li>
+                            <li><a href="board.jsp">자유게시판</a></li>
             </ul>
           </li>
           <%
