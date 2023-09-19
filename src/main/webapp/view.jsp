@@ -23,20 +23,10 @@
 
     <!--    여기에 css 넣어주세요-->
     <link rel="stylesheet" href="/css/default.css">
+    <link rel="stylesheet" href="/css/bootstrap.css">
     <link rel="stylesheet" href="/css/style.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-    <link rel="stylesheet" href="/css/bootstrap.css">
-    <link rel="stylesheet" href="/css/custom.css">
-    <style type="text/css">
-        a, a:hover {
-            color: #000000;
-            text-decoration: none;
-        }
-        .container {
-            margin-top: 100px; /* 페이지 상단과의 간격 설정 */
-        }
-    </style>
 </head>
 <body>
 <%
