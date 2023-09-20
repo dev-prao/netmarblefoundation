@@ -13,12 +13,12 @@
 </head>
 <body>
 <%
-    String memberId = null;
-    if(session.getAttribute("memberId")!=null){
-        memberId=(String)session.getAttribute("memberId");
+    String userID = null;
+    if(session.getAttribute("userID")!=null){
+        userID=(String)session.getAttribute("userID");
     }
 
-    if(memberId == null){
+    if(userID == null){
         PrintWriter script=response.getWriter();
         script.println("<script>");
         script.println("alert('로그인을 하세요.')");
@@ -34,7 +34,7 @@
             script.println("</script>");
         }else{
             BoardDAO boardDAO=new BoardDAO();//하나의 인스턴스
-            int result=boardDAO.write(board.getBoardTitle(),memberId,board.getBoardContent(),board.getBoardCount(),board.getLikeCount());
+            int result=boardDAO.write(board.getBoardTitle(),userID,board.getBoardContent(),board.getBoardCount(),board.getLikeCount());
             if(result == -1){//데이터 베이스 오류가 날 때
                 PrintWriter script=response.getWriter();
                 script.println("<script>");

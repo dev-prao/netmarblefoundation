@@ -2,57 +2,49 @@ package comment;
 
 public class Comment {
 	private String commentContent;
-	private int commentId;
-	private String memberId;
+	private int commentID;
+	private String userID;
 	private int commentAvailable;
-	private int boardId;
+	private int boardID;
 	private String commentDate;
-
+	
 	public String getCommentContent() {
 		return commentContent;
 	}
-
 	public void setCommentContent(String commentContent) {
 		this.commentContent = commentContent;
 	}
-
-	public int getCommentId() {
-		return commentId;
+	public int getCommentID() {
+		return commentID;
 	}
-
-	public void setCommentId(int commentId) {
-		this.commentId = commentId;
+	public void setCommentID(int commentID) {
+		this.commentID = commentID;
 	}
-
-	public String getMemberId() {
-		return memberId;
+	public String getUserID() {
+		return userID;
 	}
-
-	public void setMemberId(String memberId) {
-		this.memberId = memberId;
+	public void setUserID(String userID) {
+		this.userID = userID;
 	}
-
 	public int getCommentAvailable() {
 		return commentAvailable;
 	}
-
 	public void setCommentAvailable(int commentAvailable) {
 		this.commentAvailable = commentAvailable;
 	}
-
-	public int getBoardId() {
-		return boardId;
+	public int getBoardID() {
+		return boardID;
 	}
-
-	public void setBoardId(int boardId) {
-		this.boardId = boardId;
+	public void setBoardID(int boardID) {
+		this.boardID = boardID;
 	}
-
 	public String getCommentDate() {
 		return commentDate;
 	}
-
 	public void setCommentDate(String commentDate) {
 		this.commentDate = commentDate;
 	}
+
+	
+	
 }

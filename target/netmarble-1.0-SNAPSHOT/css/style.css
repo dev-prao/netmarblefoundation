@@ -430,50 +430,6 @@
     background: rgba(0, 0, 0, 0.1);
 }
 
-/*join.jsp*/
-.jumbotron {
-    display: flex; /* Flexbox 레이아웃 사용 */
-    flex-direction: column; /* 세로 방향으로 정렬 */
-    justify-content: center; /* 수직 가운데 정렬 */
-    align-items: center; /* 수평 가운데 정렬 */
-    height: 780px;
-    background-image: url('https://cdn.pixabay.com/photo/2020/09/09/02/12/smearing-5556288_1280.jpg');
-    padding: 100px;
-    margin-top: 100px;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    text-align: center;
-}
-
-/* 폼 그룹 스타일 */
-.jumbotron .form-group {
-    margin-bottom: 20px; /* 폼 그룹 간격 늘리기 */
-}
-
-/* 폼 컨트롤 스타일 (선택사항) */
-.jumbotron .form-control {
-    padding: 10px; /* 폼 컨트롤 크기 조절 */
-    font-size: 16px; /* 폰트 크기 조절 */
-}
-.container .row form{
-    margin-top: 100px; /* 페이지 상단과의 간격 설정 */
-}
-
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
-*{
-    font-family : 'Nanum Gothic', cursive;
-}
-h1 {
-    font-family : 'Do Hyeon', sans-serif;
-}
-a, a:hover {
-    color: #000000;
-    text-decoration: none;
-}
-.container {
-    margin-top: 100px; /* 페이지 상단과의 간격 설정 */
-}
 
 
 

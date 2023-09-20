@@ -12,24 +12,24 @@
 </head>
 <body>
 <%
-    String memberId = null;
-    if (session.getAttribute("memberId") != null) {
-        memberId = (String)session.getAttribute("memberId");
+    String userID = null;
+    if (session.getAttribute("userID") != null) {
+        userID = (String)session.getAttribute("userID");
     }
 
-    if (memberId == null) {
+    if (userID == null) {
         PrintWriter script = response.getWriter();
         script.println("<script>");
         script.println("alert('로그인을 하세요')");
         script.println("location.href='login.jsp'");
         script.println("</script>");
     } else {
-		int boardId = 0;
-        if (request.getParameter("boardId") != null) {
-            boardId = Integer.parseInt(request.getParameter("boardId"));
+		int boardID = 0;
+        if (request.getParameter("boardID") != null) {
+            boardID = Integer.parseInt(request.getParameter("boardID"));
         }
 
-        if (boardId == 0) {
+        if (boardID == 0) {
             PrintWriter script = response.getWriter();
             script.println("<script>");
             script.println("alert('유효하지 않은 글입니다.')");
@@ -45,7 +45,7 @@
             script.println("</script>");
         } else {
             CommentDAO commentDAO = new CommentDAO();
-            int result = commentDAO.write(comment.getCommentContent(), memberId, boardId);
+            int result = commentDAO.write(comment.getCommentContent(), userID, boardID);
             if (result == -1) {
                 PrintWriter script = response.getWriter();
                 script.println("<script>");

@@ -1,65 +1,57 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: prao
-  Date: 2023/09/14
-  Time: 2:55 PM
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ page import="member.MemberDAO" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="user.UserDAO" %>
 <%@ page import="java.io.PrintWriter" %>
 <% request.setCharacterEncoding("UTF-8"); %>
-<jsp:useBean id="member" class="member.Member" scope="page"/>
-<jsp:setProperty name="member" property="memberId"/>
-<jsp:setProperty name="member" property="memberPassword"/>
-<jsp:setProperty name="member" property="memberName"/>
-<jsp:setProperty name="member" property="birthday"/>
-<jsp:setProperty name="member" property="tel"/>
+<jsp:useBean id="user" class="user.User" scope="page" />
+<jsp:setProperty name="user" property="userID" />
+<jsp:setProperty name="user" property="userPassword" />
+<jsp:setProperty name="user" property="userName" />
+<jsp:setProperty name="user" property="userGender" />
+<jsp:setProperty name="user" property="userEmail" />
+<!DOCTYPE html>
 <html>
 <head>
-    <title>넷마블문화재단</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>넷마블문화재단</title>
 </head>
 <body>
-<%
-    PrintWriter script = response.getWriter();
-    String memberId = null;
-    if (session.getAttribute("memberId") != null) {
-        memberId = (String)session.getAttribute("memberId");
-    }
-
-	if (memberId != null) {
-        script.println("<script>");
-        script.println("alert('이미 로그인 되어있습니다.')");
-        script.println("location.href = 'index.jsp'");
-        script.println("</script>");
-    }
-
-    if (member.getMemberId() == null || member.getMemberPassword() == null || member.getMemberName() == null
-            || member.getBirthday() == null || member.getTel() == null) {
-        script.println("<script>");
-        script.println("alert('누락된 항목이 있습니다.')");
-        script.println("history.back()");
-        script.println("</script>");
-    }
-
-    MemberDAO memberDAO = new MemberDAO();
-    int result = memberDAO.join(member);
-
-    if (member.getMemberId() != null && member.getMemberPassword() != null && member.getMemberName() != null
-            && member.getBirthday() != null && member.getTel() != null && result == -1) {
+	<%
+		PrintWriter script = response.getWriter();
+		String userID = null;
+		if (session.getAttribute("userID") != null) {
+		userID = (String) session.getAttribute("userID");
+	}
+	if (userID != null) {
 		script.println("<script>");
-		script.println("alert('사용할 수 없는 아이디입니다.')");
-		script.println("history.back()");
+		script.println("alert('이미 로그인이 되어있습니다.')");
+		script.println("location.href = 'main.jsp'");
 		script.println("</script>");
-    }
+	}
+		if (user.getUserID() == null || user.getUserPassword() == null || user.getUserName() == null
+			|| user.getUserGender() == null || user.getUserEmail() == null) {
+			script.println("<script>");
+			script.println("alert('입력이 안 된 사항이 있습니다.')");
+			script.println("history.back()");
+			script.println("</script>");
+		} else {
+			UserDAO userDAO = new UserDAO();
+			int result = userDAO.join(user);
+			if (result == -1) {
+				script.println("<script>");
+				script.println("alert('이미 존재하는 아이디입니다.')");
+				script.println("history.back()");
+				script.println("</script>");
+			}		
+			else {
+				session.setAttribute("userID", user.getUserID());
+				script.println("<script>");
+				script.println("location.href = 'main.jsp'");
+				script.println("</script>");
+			}
+		}
+			
 
-	if (member.getMemberId() != null && member.getMemberPassword() != null && member.getMemberName() != null
-            && member.getBirthday() != null && member.getTel() != null && result != -1) {
-		session.setAttribute("memberId",member.getMemberId());
-        script.println("<script>");
-        script.println("location.href = 'index.jsp'");
-        script.println("</script>");
-    }
-%>
+	%>
 </body>
 </html>

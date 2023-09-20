@@ -1,22 +1,19 @@
 package likey;
 
 public class Likey {
-	private String memberId;
-	private int boardId;
-
-	public String getMemberId() {
-		return memberId;
+	private String userID;
+	private int boardID;
+	
+	public String getUserID() {
+		return userID;
 	}
-
-	public void setMemberId(String memberId) {
-		this.memberId = memberId;
+	public void setUserID(String userID) {
+		this.userID = userID;
 	}
-
-	public int getBoardId() {
-		return boardId;
+	public int getBoardID() {
+		return boardID;
 	}
-
-	public void setBoardId(int boardId) {
-		this.boardId = boardId;
+	public void setBoardID(int boardID) {
+		this.boardID = boardID;
 	}
 }

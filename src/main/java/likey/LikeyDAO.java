@@ -3,16 +3,14 @@ package likey;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 
 public class LikeyDAO {
 	private Connection conn;
-	private ResultSet rs;
 
 	public LikeyDAO() {
 		try {
-			String dbURL = "jdbc:mysql://localhost:3306/commits";
-			String dbID = "netmarble";
+			String dbURL = "jdbc:mysql://localhost:3306/BBS";
+			String dbID = "prao";
 			String dbPassword = "pass";
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
@@ -21,12 +19,12 @@ public class LikeyDAO {
 		}
 	}
 
-	public int like(String memberId, int boardId) {
+	public int like(String userID, int boardID) {
 		String SQL = "INSERT INTO LIKEY VALUES (?, ?)";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
-			pstmt.setString(1, memberId);
-			pstmt.setInt(2, boardId);
+			pstmt.setString(1, userID);
+			pstmt.setInt(2, boardID);
 			return pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();

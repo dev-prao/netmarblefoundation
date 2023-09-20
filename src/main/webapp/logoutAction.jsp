@@ -1,21 +1,18 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: prao
-  Date: 2023/09/14
-  Time: 4:37 PM
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="user.UserDAO" %>
+<!DOCTYPE html>
 <html>
-  <head>
-    <title>$Title$</title>
-  </head>
-  <body>
-  <%
-    session.invalidate();
-  %>
-  <script>
-    location.href = 'index.jsp';
-  </script>
-  </body>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>넷마블문화재단</title>
+</head>
+<body>
+	<%
+		session.invalidate();
+	%>
+	<script>
+		location.href = 'main.jsp';
+	</script>
+</body>
 </html>

@@ -3,6 +3,7 @@
 <%@ page import="java.io.PrintWriter" %>
 <%@ page import="comment.Comment" %>
 <%@ page import="comment.CommentDAO" %>
+<% request.setCharacterEncoding("UTF-8"); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,32 +12,32 @@
 </head>
 <body>
 <%
-    String memberId = null;
-    if(session.getAttribute("memberId")!=null){
-        memberId =(String)session.getAttribute("memberId");
+    String userID = null;
+    if(session.getAttribute("userID")!=null){
+        userID =(String)session.getAttribute("userID");
     }
-    if(memberId == null){
+    if(userID == null){
         PrintWriter script=response.getWriter();
         script.println("<script>");
         script.println("alert('로그인을 하세요.')");
         script.println("location.href='login.jsp'");
         script.println("</script>");
     }
-    int boardId =0;
-    if(request.getParameter("boardId")!=null)
-        boardId =Integer.parseInt(request.getParameter("boardId"));
-    int commentId =0;
-    if(request.getParameter("commentId")!=null)
-        commentId =Integer.parseInt(request.getParameter("commentId"));
-    if(commentId ==0){
+    int boardID =0;
+    if(request.getParameter("boardID")!=null)
+        boardID =Integer.parseInt(request.getParameter("boardID"));
+    int commentID =0;
+    if(request.getParameter("commentID")!=null)
+        commentID =Integer.parseInt(request.getParameter("commentID"));
+    if(commentID ==0){
         PrintWriter script=response.getWriter();
         script.println("<script>");
         script.println("alert('유효하지 않은 글입니다.')");
         script.println("location.href='board.jsp'");
         script.println("</script>");
     }
-    Comment comment = new CommentDAO().getComment(commentId);
-    if(!memberId.equals(comment.getMemberId())){
+    Comment comment = new CommentDAO().getComment(commentID);
+    if(!userID.equals(comment.getUserID())){
         PrintWriter script=response.getWriter();
         script.println("<script>");
         script.println("alert('권한이 없습니다.')");
@@ -51,7 +52,7 @@
             script.println("</script>");
         }else{
             CommentDAO commentDAO=new CommentDAO();//하나의 인스턴스
-            int result=commentDAO.update(boardId, commentId,request.getParameter("commentContent"));
+            int result=commentDAO.update(boardID, commentID,request.getParameter("commentContent"));
             if(result == -1){//데이터 베이스 오류가 날 때
                 PrintWriter script=response.getWriter();
                 script.println("<script>");
@@ -62,7 +63,7 @@
             else{
                 PrintWriter script=response.getWriter();
                 script.println("<script>");
-                script.println("location.href= \'boardView.jsp?boardId="+ boardId +"\'");
+                script.println("location.href= \'boardView.jsp?boardID="+ boardID +"\'");
                 script.println("</script>");
             }
         }

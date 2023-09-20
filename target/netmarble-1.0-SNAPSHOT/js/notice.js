@@ -33,7 +33,7 @@ loadButton.addEventListener("click", function () {
         link.href = imageLinks[currentBoxes]; // 해당 이미지에 대한 하이퍼링크
         link.target = "_blank"; // 새 창에서 열기
         var img = document.createElement("img");
-        img.src = "image/이미지" + (currentBoxes + 1) + ".jpg";
+        img.src = "image/image" + (currentBoxes + 1) + "jpg";
         img.alt = "새 소식 준비중 " + (currentBoxes + 1);
 
         link.appendChild(img);
@@ -49,6 +49,7 @@ loadButton.addEventListener("click", function () {
     }
   }
 });
+
 
 
 

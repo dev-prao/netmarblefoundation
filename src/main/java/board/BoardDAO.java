@@ -13,10 +13,10 @@ public class BoardDAO {
 
     public BoardDAO() {
         try {
-            String dbURL = "jdbc:mysql://localhost:3306/commits";
-            String dbID = "netmarble";
-            String dbPassword = "pass";
-            Class.forName("com.mysql.cj.jdbc.Driver");
+        	String dbURL = "jdbc:mysql://localhost:3306/BBS";
+			String dbID = "prao";
+			String dbPassword = "pass";
+			Class.forName("com.mysql.cj.jdbc.Driver");
             conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
         } catch (Exception e) {
             e.printStackTrace();
@@ -38,7 +38,7 @@ public class BoardDAO {
     }
 
     public int getNext() {
-        String SQL = "SELECT boardId FROM BOARD ORDER BY boardId DESC";
+        String SQL = "SELECT boardID FROM BOARD ORDER BY boardID DESC";
         try {
             PreparedStatement pstmt = conn.prepareStatement(SQL);
             rs = pstmt.executeQuery();
@@ -52,13 +52,13 @@ public class BoardDAO {
         return -1; //데이터베이스 오류
     }
 
-    public int write(String boardTitle, String memberId, String boardContent, int boardCount, int likeCount) {
+    public int write(String boardTitle, String userID, String boardContent, int boardCount, int likeCount) {
         String SQL = "INSERT INTO BOARD VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         try {
             PreparedStatement pstmt = conn.prepareStatement(SQL);
             pstmt.setInt(1, getNext());
             pstmt.setString(2, boardTitle);
-            pstmt.setString(3, memberId);
+            pstmt.setString(3, userID);
             pstmt.setString(4, getDate());
             pstmt.setString(5, boardContent);
             pstmt.setInt(6, 1);
@@ -72,7 +72,7 @@ public class BoardDAO {
     }
 
     public ArrayList<Board> getList(int pageNumber) {
-        String SQL = "SELECT * FROM BOARD WHERE boardId < ? AND boardAvailable = 1 ORDER BY boardID DESC LIMIT 10";
+        String SQL = "SELECT * FROM BOARD WHERE boardID < ? AND boardAvailable = 1 ORDER BY boardID DESC LIMIT 10";
         ArrayList<Board> list = new ArrayList<>();
         try {
             PreparedStatement pstmt = conn.prepareStatement(SQL);
@@ -80,9 +80,9 @@ public class BoardDAO {
             rs = pstmt.executeQuery();
             while (rs.next()) {
                 Board board = new Board();
-                board.setBoardId(rs.getInt(1));
+                board.setBoardID(rs.getInt(1));
                 board.setBoardTitle(rs.getString(2));
-                board.setMemberId(rs.getString(3));
+                board.setUserID(rs.getString(3));
                 board.setBoardDate(rs.getString(4));
                 board.setBoardContent(rs.getString(5));
                 board.setBoardAvailable(rs.getInt(6));
@@ -112,7 +112,7 @@ public class BoardDAO {
 
 
     public boolean nextPage(int pageNumber) {
-        String SQL = "SELECT * FROM BOARD WHERE boardId < ? AND boardAvailable = 1";
+        String SQL = "SELECT * FROM BOARD WHERE boardID < ? AND boardAvailable = 1";
         try {
             PreparedStatement pstmt = conn.prepareStatement(SQL);
             pstmt.setInt(1, getNext() - (pageNumber - 1) * 10);
@@ -126,24 +126,24 @@ public class BoardDAO {
         return false;
     }
 
-    public Board getBoard(int boardId) {
-        String SQL = "SELECT * FROM BOARD WHERE boardId = ?";
+    public Board getBoard(int boardID) {
+        String SQL = "SELECT * FROM BOARD WHERE boardID = ?";
         try {
             PreparedStatement pstmt = conn.prepareStatement(SQL);
-            pstmt.setInt(1, boardId);
+            pstmt.setInt(1, boardID);
             rs = pstmt.executeQuery();
             if (rs.next()) {
                 Board board = new Board();
-                board.setBoardId(rs.getInt(1));
+                board.setBoardID(rs.getInt(1));
                 board.setBoardTitle(rs.getString(2));
-                board.setMemberId(rs.getString(3));
+                board.setUserID(rs.getString(3));
                 board.setBoardDate(rs.getString(4));
                 board.setBoardContent(rs.getString(5));
                 board.setBoardAvailable(rs.getInt(6));
                 int boardCount = rs.getInt(7);
                 board.setBoardCount(boardCount);
                 boardCount++;
-                countUpdate(boardCount, boardId);
+                countUpdate(boardCount, boardID);
 
                 board.setLikeCount(rs.getInt(8));
 
@@ -155,12 +155,12 @@ public class BoardDAO {
         return null;
     }
 
-    public int countUpdate(int boardCount, int boardId) {
-        String SQL = "UPDATE BOARD SET boardCount = ? WHERE boardId = ?";
+    public int countUpdate(int boardCount, int boardID) {
+        String SQL = "UPDATE BOARD SET boardCount = ? WHERE boardID = ?";
         try {
             PreparedStatement pstmt = conn.prepareStatement(SQL);
             pstmt.setInt(1, boardCount);
-            pstmt.setInt(2, boardId);
+            pstmt.setInt(2, boardID);
             return pstmt.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -168,13 +168,13 @@ public class BoardDAO {
         return -1; //데이터베이스 오류
     }
 
-    public int update(int boardId, String boardTitle, String boardContent) {
-        String SQL = "UPDATE BOARD SET boardTitle = ?, boardContent = ? WHERE boardId = ?";
+    public int update(int boardID, String boardTitle, String boardContent) {
+        String SQL = "UPDATE BOARD SET boardTitle = ?, boardContent = ? WHERE boardID = ?";
         try {
             PreparedStatement pstmt = conn.prepareStatement(SQL);
             pstmt.setString(1, boardTitle);
             pstmt.setString(2, boardContent);
-            pstmt.setInt(3, boardId);
+            pstmt.setInt(3, boardID);
             return pstmt.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -182,11 +182,11 @@ public class BoardDAO {
         return -1; //데이터베이스 오류
     }
 
-    public int delete(int boardId) {
-        String SQL = "UPDATE BOARD SET boardAvailable = 0 WHERE boardId = ?";
+    public int delete(int boardID) {
+        String SQL = "UPDATE BOARD SET boardAvailable = 0 WHERE boardID = ?";
         try {
             PreparedStatement pstmt = conn.prepareStatement(SQL);
-            pstmt.setInt(1, boardId);
+            pstmt.setInt(1, boardID);
             return pstmt.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -194,11 +194,11 @@ public class BoardDAO {
         return -1; //데이터베이스 오류
     }
 
-    public int like(int boardId) {
-        String SQL = "UPDATE BOARD SET likeCount = likeCount + 1 WHERE boardId = ?";
+    public int like(int boardID) {
+        String SQL = "UPDATE BOARD SET likeCount = likeCount + 1 WHERE boardID = ?";
         try {
             PreparedStatement pstmt = conn.prepareStatement(SQL);
-            pstmt.setInt(1, boardId);
+            pstmt.setInt(1, boardID);
             return pstmt.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -211,15 +211,15 @@ public class BoardDAO {
         String SQL = "SELECT * FROM BOARD WHERE " + searchField.trim();
         try {
             if (searchText != null && !searchText.equals("")) {
-                SQL += " LIKE ? ORDER BY boardId DESC LIMIT 10";
+                SQL += " LIKE ? ORDER BY boardID DESC LIMIT 10";
                 PreparedStatement pstmt = conn.prepareStatement(SQL);
                 pstmt.setString(1, "%" + searchText.trim() + "%");
                 rs = pstmt.executeQuery();
                 while (rs.next()) {
                     Board board = new Board();
-                    board.setBoardId(rs.getInt(1));
+                    board.setBoardID(rs.getInt(1));
                     board.setBoardTitle(rs.getString(2));
-                    board.setMemberId(rs.getString(3));
+                    board.setUserID(rs.getString(3));
                     board.setBoardDate(rs.getString(4));
                     board.setBoardContent(rs.getString(5));
                     board.setBoardAvailable(rs.getInt(6));
