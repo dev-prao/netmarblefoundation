@@ -12,7 +12,7 @@ public class LikeyDAO {
 	public LikeyDAO() {
 		try {
 			String dbURL = "jdbc:mysql://localhost:3306/commits";
-			String dbID = "prao";
+			String dbID = "netmarble";
 			String dbPassword = "pass";
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);

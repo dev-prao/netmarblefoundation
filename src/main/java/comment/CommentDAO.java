@@ -13,8 +13,8 @@ public class CommentDAO {
 
 	public CommentDAO() {
 		try {
-			String dbURL = "jdbc:mysql://localhost:3306/commits";
-			String dbID = "prao";
+			String dbURL = "jdbc:mysql://localhost:3306/commits?ServerTimezone=UTC";
+			String dbID = "netmarble";
 			String dbPassword = "pass";
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
@@ -52,16 +52,16 @@ public class CommentDAO {
 		return -1; //데이터베이스 오류
 	}
 
-	public int write(String commentContent, String memberId, String boardId) {
-		String SQL = "INSERT INTO BOARD VALUES (?, ?, ?, ?, ?, ?)";
+	public int write(String commentContent, String memberId, int boardId) {
+		String SQL = "INSERT INTO COMMENT VALUES (?, ?, ?, ?, ?, ?)";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
 			pstmt.setString(1, commentContent);
 			pstmt.setInt(2, getNext());
 			pstmt.setString(3, memberId);
-			pstmt.setString(4, getDate());
-			pstmt.setString(5, boardId);
-			pstmt.setInt(6, 1);
+			pstmt.setInt(4, 1);
+			pstmt.setString(5, getDate());
+			pstmt.setInt(6, boardId);
 			return pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();

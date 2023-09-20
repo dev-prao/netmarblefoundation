@@ -41,7 +41,7 @@
         PrintWriter script=response.getWriter();
         script.println("<script>");
         script.println("alert('유효하지 않은 글입니다.')");
-        script.println("location.href='bbs.jsp'");
+        script.println("location.href='board.jsp'");
         script.println("</script>");
     }
 
@@ -119,7 +119,7 @@
             <table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
                 <thead>
                 <tr>
-                    <th colspan="3" style="background-color: #2e8b57; text-align:center;">게시판 글 보기</th>
+                    <th colspan="3" style="background-color: lightgoldenrodyellow; text-align:center;">게시판 글 보기</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -155,18 +155,18 @@
             <%
                 if(memberId != null && memberId.equals(board.getMemberId())){//해당 글이 본인이라면 수정과 삭제가 가능
             %>
-            <a href="update.jsp?boardId=<%=boardId%>" class="btn btn-warning">수정</a>
-            <a onclick="return confirm('정말로 삭제하시겠습니까?')" href="deleteAction.jsp?boardId=<%=boardId%>" class="btn btn-danger">삭제</a>
+            <a href="boardUpdate.jsp?boardId=<%=boardId%>" class="btn btn-warning">수정</a>
+            <a onclick="return confirm('정말로 삭제하시겠습니까?')" href="boardDeleteAction.jsp?boardId=<%=boardId%>" class="btn btn-danger">삭제</a>
             <%
                 }
             %>
             <br><br>
             <div class="container">
                 <div class="row">
-                    <table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
+                    <table class="table table-striped" style="text-align: center; border: 1px solid lightgoldenrodyellow">
                         <tbody>
                         <tr>
-                            <td align="left" bgcolor="skyblue">댓글</td>
+                            <td align="left" bgcolor="#fafad2">댓글</td>
                         </tr>
                         <tr>
                             <%
@@ -176,13 +176,14 @@
                             %>
                             <div class="container">
                                 <div class="row">
-                                    <table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
+                                    <table class="table table-striped" style="text-align: center; border: 1px solid lightgoldenrodyellow">
                                         <tbody>
                                         <tr>
                                             <td align="left"><%= list.get(i).getMemberId() %></td>
 
-                                            <td align="right"><%= list.get(i).getCommentDate().substring(0,11)+list.get(i).getCommentDate().substring(11,13)+"시"+list.get(i).getCommentDate().substring(14,16)+"분" %></td>
+                                            <td align="right"><%= list.get(i).getCommentDate().substring(0,11)+list.get(i).getCommentDate().substring(11,13)+"시 "+list.get(i).getCommentDate().substring(14,16)+"분" %></td>
                                         </tr>
+
 
                                         <tr>
                                             <td align="left"><%= list.get(i).getCommentContent() %></td>

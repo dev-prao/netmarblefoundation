@@ -86,8 +86,8 @@ public class BoardDAO {
                 board.setBoardDate(rs.getString(4));
                 board.setBoardContent(rs.getString(5));
                 board.setBoardAvailable(rs.getInt(6));
-                board.setBoardCount(7);
-                board.setLikeCount(8);
+                board.setBoardCount(rs.getInt(7));
+                board.setLikeCount(rs.getInt(8));
                 list.add(board);
             }
         } catch (Exception e) {
@@ -140,8 +140,13 @@ public class BoardDAO {
                 board.setBoardDate(rs.getString(4));
                 board.setBoardContent(rs.getString(5));
                 board.setBoardAvailable(rs.getInt(6));
-                board.setBoardCount(7);
-                board.setLikeCount(8);
+                int boardCount = rs.getInt(7);
+                board.setBoardCount(boardCount);
+                boardCount++;
+                countUpdate(boardCount, boardId);
+
+                board.setLikeCount(rs.getInt(8));
+
                 return board;
             }
         } catch (Exception e) {
@@ -190,7 +195,7 @@ public class BoardDAO {
     }
 
     public int like(int boardId) {
-        String SQL = "UPDATE BOARD SET likeCount += 1 WHERE boardId = ?";
+        String SQL = "UPDATE BOARD SET likeCount = likeCount + 1 WHERE boardId = ?";
         try {
             PreparedStatement pstmt = conn.prepareStatement(SQL);
             pstmt.setInt(1, boardId);
@@ -206,25 +211,27 @@ public class BoardDAO {
         String SQL = "SELECT * FROM BOARD WHERE " + searchField.trim();
         try {
             if (searchText != null && !searchText.equals("")) {
-                SQL += " LIKE '%" + searchText.trim() + "%' ORDER BY boardId DESC LIMIT 10";
-            }
-            PreparedStatement pstmt = conn.prepareStatement(SQL);
-            rs = pstmt.executeQuery();
-            while (rs.next()) {
-                Board board = new Board();
-                board.setBoardId(rs.getInt(1));
-                board.setBoardTitle(rs.getString(2));
-                board.setMemberId(rs.getString(3));
-                board.setBoardDate(rs.getString(4));
-                board.setBoardContent(rs.getString(5));
-                board.setBoardAvailable(rs.getInt(6));
-                board.setBoardCount(rs.getInt(7));
-                board.setLikeCount(rs.getInt(8));
-                list.add(board);
+                SQL += " LIKE ? ORDER BY boardId DESC LIMIT 10";
+                PreparedStatement pstmt = conn.prepareStatement(SQL);
+                pstmt.setString(1, "%" + searchText.trim() + "%");
+                rs = pstmt.executeQuery();
+                while (rs.next()) {
+                    Board board = new Board();
+                    board.setBoardId(rs.getInt(1));
+                    board.setBoardTitle(rs.getString(2));
+                    board.setMemberId(rs.getString(3));
+                    board.setBoardDate(rs.getString(4));
+                    board.setBoardContent(rs.getString(5));
+                    board.setBoardAvailable(rs.getInt(6));
+                    board.setBoardCount(rs.getInt(7));
+                    board.setLikeCount(rs.getInt(8));
+                    list.add(board);
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
         return list;
     }
+
 }

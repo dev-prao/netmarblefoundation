@@ -157,7 +157,7 @@
                 <tr>
                     <td><%=list.get(i).getBoardId()%></td>
                     <%--현재 게시글에 대한 정보 --%>
-                    <td><a href="view.jsp?boardId=<%=list.get(i).getBoardId()%>"><%=list.get(i).getBoardTitle().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;")
+                    <td><a href="boardView.jsp?boardId=<%=list.get(i).getBoardId()%>"><%=list.get(i).getBoardTitle().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;")
                             .replaceAll(">", "&gt;").replaceAll("\n", "<br>")%></a></td>
                     <td><%=list.get(i).getMemberId()%></td>
                     <td><%=list.get(i).getBoardDate().substring(0, 11) + list.get(i).getBoardDate().substring(11, 13) + "시"
@@ -194,7 +194,7 @@
                 <%
                     }
                 %>
-                <a href="write.jsp" class="btn btn-success pull-right">글쓰기</a>
+                <a href="boardWrite.jsp" class="btn btn-success pull-right">글쓰기</a>
             </div>
 
         </div>

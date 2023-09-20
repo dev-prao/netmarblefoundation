@@ -16,7 +16,7 @@ public class MemberDAO {
 			String dbURL = "jdbc:mysql://localhost:3306/commits";
 			String dbID = "netmarble";
 			String dbPassword = "pass";
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
 			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
 		} catch (Exception e) {
 			e.printStackTrace();
