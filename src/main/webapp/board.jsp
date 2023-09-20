@@ -35,7 +35,6 @@
 
     <%
         BoardDAO board = new BoardDAO();
-		String formattedDate = board.getDate(); // 위의 SQL 쿼리에서 가져온 형식에 맞는 날짜 문자열
     %>
     <div class="container" style="margin-top: 30px" >
         <div class="row">
