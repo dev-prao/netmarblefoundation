@@ -1,0 +1,28 @@
+
+t
+java:S2293J"YReplace the type specification in this constructor call with the diamond operator ("<>").(»ò‘ûÿÿÿÿ
+‹
+java:S1319H"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(é¾éùÿÿÿÿ
+k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ó„€úÿÿÿÿ
+f	java:S117)"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(š´µé
+k	java:S1178"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ˆÉêøøÿÿÿÿ
+f	java:S117I"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ë°Æé
+m	java:S117`"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(œèì¹8Âü¨ˆ«1
+r	java:S117v"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÄÒÀùÿÿÿÿ8Âü¨ˆ«1
+n	java:S117„"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¥°š¾8Âü¨ˆ«1
+q
+java:S2095L"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(²’ÅĞøÿÿÿÿ8ûü¨ˆ«1
+j
+java:S2095+"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(²’ÅĞøÿÿÿÿ
+q
+java:S2095:"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(²’ÅĞøÿÿÿÿ8ûü¨ˆ«1
+q
+java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(²’ÅĞøÿÿÿÿ8ûü¨ˆ«1
+j
+java:S2095b"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(²’ÅĞøÿÿÿÿ
+j
+java:S2095x"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(²’ÅĞøÿÿÿÿ
+k
+java:S2095†"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(²’ÅĞøÿÿÿÿ
+X
+java:S6437"6Revoke and change this password, as it is compromised.(í–Œíùÿÿÿÿ8€ı¨ˆ«1

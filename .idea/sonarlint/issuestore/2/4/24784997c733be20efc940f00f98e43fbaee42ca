@@ -1,0 +1,31 @@
+
+n
+java:S2293J"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÚÌ²h
+‹
+java:S1319H"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(íÒÜóúÿÿÿÿ
+k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ó„€úÿÿÿÿ
+f	java:S117)"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ªŸ´è
+k	java:S1178"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(öóòÿÿÿÿÿ
+f	java:S117I"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ò¿÷ú
+k	java:S117`"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(•¼àÓùÿÿÿÿ
+f	java:S117o"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¤Óã„
+g	java:S117…"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(££È„
+l	java:S117“"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(›¡ëİúÿÿÿÿ
+k
+java:S2095•"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(²’ÅĞøÿÿÿÿ
+j
+java:S2095L"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(²’ÅĞøÿÿÿÿ
+j
+java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(²’ÅĞøÿÿÿÿ
+j
+java:S2095b"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(²’ÅĞøÿÿÿÿ
+j
+java:S2095q"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(²’ÅĞøÿÿÿÿ
+k
+java:S2095‡"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(²’ÅĞøÿÿÿÿ
+j
+java:S2095:"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(²’ÅĞøÿÿÿÿ
+j
+java:S2095+"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(²’ÅĞøÿÿÿÿ
+Q
+java:S6437"6Revoke and change this password, as it is compromised.(í–Œíùÿÿÿÿ

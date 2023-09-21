@@ -1,0 +1,43 @@
+
+‹
+java:S1319J"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(­Å¬Ûùÿÿÿÿ
+
+java:S1319Ğ"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(—œå8éˆ«1
+k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ó„€úÿÿÿÿ
+f	java:S117)"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ªôÄ
+k	java:S1178"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ø­şÃøÿÿÿÿ
+f	java:S117K"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(»ÑĞ
+r	java:S117d"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¿Şæîşÿÿÿÿ8êˆ«1
+m	java:S117r"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÂÃ”¯8êˆ«1
+s	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(“õĞîûÿÿÿÿ8êˆ«1
+s	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¹ƒ ğÿÿÿÿÿ8êˆ«1
+s	java:S117ª"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ğ§¾üÿÿÿÿ8êˆ«1
+s	java:S117¹"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¥Åğëùÿÿÿÿ8êˆ«1
+n	java:S117Å"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ûú«œ8êˆ«1
+s	java:S117Ò"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(º¨ôøÿÿÿÿ8ëˆ«1
+r
+java:S2095»"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(²’ÅĞøÿÿÿÿ8‚ˆ«1
+q
+java:S2095f"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(²’ÅĞøÿÿÿÿ8‚ˆ«1
+r
+java:S2095Ÿ"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(²’ÅĞøÿÿÿÿ8‚ˆ«1
+j
+java:S2095t"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(²’ÅĞøÿÿÿÿ
+r
+java:S2095Ö"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(²’ÅĞøÿÿÿÿ8ƒˆ«1
+q
+java:S2095+"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(²’ÅĞøÿÿÿÿ8µÂˆ«1
+q
+java:S2095N"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(²’ÅĞøÿÿÿÿ8µÂˆ«1
+q
+java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(²’ÅĞøÿÿÿÿ8‚ˆ«1
+q
+java:S2095:"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(²’ÅĞøÿÿÿÿ8‚ˆ«1
+r
+java:S2095ƒ"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(²’ÅĞøÿÿÿÿ8‚ˆ«1
+r
+java:S2095¬"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(²’ÅĞøÿÿÿÿ8‚ˆ«1
+r
+java:S2095Ç"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(²’ÅĞøÿÿÿÿ8¶©ñéª1
+X
+java:S6437"6Revoke and change this password, as it is compromised.(í–Œíùÿÿÿÿ8Ş‡å«1

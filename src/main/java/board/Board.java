@@ -10,7 +10,6 @@ public class Board {
     private int boardCount;
     private int likeCount;
     
-    
 	public int getBoardID() {
 		return boardID;
 	}
@@ -59,6 +58,5 @@ public class Board {
 	public void setLikeCount(int likeCount) {
 		this.likeCount = likeCount;
 	}
-    
-    
+
 }
