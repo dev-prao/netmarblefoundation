@@ -1,4 +1,4 @@
-# Team COMMIT mini project
+# 🚐 MINI PROJECT 🚐
 
 ## 🏷프로젝트명: 넷마블 문화재단
 
@@ -11,54 +11,128 @@
 - `Frontend` - 23.08.02(수) ~ 23.08.08(화) (7일)
 - `Backend`  - 23.09.13(수) ~ 23.09.21(목) (9일)
 
-### 👬 멤버 구성
-- 박창호`팀장` - 프로젝트 기획안 작성 및 계획 수립, 역할 분담, PPT 제작 및 발표, 재단활동, 로그인, 회원가입
-- 이재현`조원` - 메인 페이지 구현, 메인 CSS, 프론트엔드 코드 통합, 테스트, 리팩토링, 형상관리
-- 장성운`조원` - 재단소식 구현, PPT 제작, 1대1 문의 게시판(CRUD), 공지사항(CRUD)
-
 ## 🍳 사용 기술
 - `Frontend` - `HTML` + `CSS` + `JavaScript`
-- `Backend` - `Java` + `Spring` + `JSP`
+- `Backend` - `Java`(`JSP` + `Servlet`)
+- `Server` - `Tomcat`
+- `Database` - `MySQL`
 
 ## 📌 주요 기능
-- 추가 예정
+- 회원가입(User)
+  - 회원 전용 기능(게시판 이용)
+  - 로그인
+  - 로그아웃
+- 소셜 미디어(자유게시판)(Board)
+  - 게시글
+    - 쓰기
+    - 읽기
+    - 수정
+    - 삭제
+  - 댓글(Comment)
+    - 읽기
+    - 수정
+    - 삭제
+  - 추천(Like)
+
+## ERD Diagram
+<img width="810" alt="image" src="https://github.com/p-r-a-o/netmarblefoundation/assets/101629085/1c2462ef-35a4-44f1-83ae-6e60d5df1096">
+
+## 📺 화면 소개
+
+### 메인화면
+<img width="720" alt="image" src="https://github.com/p-r-a-o/netmarblefoundation/assets/101629085/fa24acde-0c6e-4fec-be61-7dee56d8c400">
+
+### 회원가입
+<img width="720" alt="image" src="https://github.com/p-r-a-o/netmarblefoundation/assets/101629085/071adddd-885c-4140-b2e3-25fa76862e8e">
+
+### 로그인
+<img width="720" alt="image" src="https://github.com/p-r-a-o/netmarblefoundation/assets/101629085/a15dd554-dcc3-4cf4-bfcc-496399ae834b">
+
+### 게시판
+<img width="720" alt="image" src="https://github.com/p-r-a-o/netmarblefoundation/assets/101629085/e15baaa4-a0fd-4f8d-a773-5de2d4341b52">
+
+### 글쓰기
+<img width="720" alt="image" src="https://github.com/p-r-a-o/netmarblefoundation/assets/101629085/7934642b-0ec2-46e5-bd88-5dcafc01041c">
+
+### 글보기
+<img width="720" alt="image" src="https://github.com/p-r-a-o/netmarblefoundation/assets/101629085/d1e247f2-ba74-4b4a-9987-765749996293">
+
+### 공지사항
+<img width="720" alt="image" src="https://github.com/p-r-a-o/netmarblefoundation/assets/101629085/05cf15f8-e7de-46b0-8058-d445e48e0dee">
+
+### 글보기
+<img width="720" alt="image" src="https://github.com/p-r-a-o/netmarblefoundation/assets/101629085/b7e3bc29-9a7d-4993-ba6c-b20777ce7c59">
+
 
 ## SQL Script
 ```
-CREATE TABLE BOARD (
-boardId INT(11) PRIMARY KEY ,
-boardTitle VARCHAR(50),
-memberId VARCHAR(20),
-boardDate DATETIME,
-boardContent VARCHAR(2048),
-boardAvailable INT(11),
-boardCount INT(11),
-likeCount INT(11)
+create table USER
+(
+    userID       varchar(20) not null
+        primary key,
+    userPassword varchar(20) not null,
+    userName     varchar(20) null,
+    userGender   varchar(20) null,
+    userEmail    varchar(50) null
 );
 
-CREATE TABLE COMMENT (
-commentContent VARCHAR(300),
-commentId INT(11) PRIMARY KEY ,
-memberId VARCHAR(20),
-commentAvailable INT(11),
-commentDate DATETIME,
-boardId INT(11),
-FOREIGN KEY (boardId) REFERENCES BOARD(boardId)
+create table BBS
+(
+    bbsID        int           not null
+        primary key,
+    bbsTitle     varchar(20)   null,
+    userID       varchar(20)   not null,
+    bbsDate      datetime      null,
+    bbsContent   varchar(2048) null,
+    bbsAvailable int           null,
+    constraint BBS_USER_userID_fk
+        foreign key (userID) references USER (userID)
 );
 
-CREATE TABLE LIKEY (
-memberId VARCHAR(20) PRIMARY KEY ,
-boardId INT(11),
-FOREIGN KEY (boardId) REFERENCES BOARD(boardId)
+create table BOARD
+(
+    boardID        int           not null
+        primary key,
+    boardTitle     varchar(50)   null,
+    userID         varchar(20)   not null,
+    boardDate      datetime      null,
+    boardContent   varchar(2048) null,
+    boardAvailable int           null,
+    boardCount     int           null,
+    likeCount      int           null,
+    constraint BOARD_USER_userID_fk
+        foreign key (userID) references USER (userID)
+);
+create table COMMENT
+(
+    commentContent   varchar(300) null,
+    commentID        int          not null
+        primary key,
+    userID           varchar(20)  not null,
+    commentAvailable int          null,
+    commentDate      datetime     null,
+    boardID          int          null,
+    constraint COMMENT_USER_userID_fk
+        foreign key (userID) references USER (userID),
+    constraint comment_ibfk_1
+        foreign key (boardID) references BOARD (boardID)
 );
 
-CREATE TABLE MEMBER (
-memberId VARCHAR(20) PRIMARY KEY ,
-memberPassword VARCHAR(20) NOT NULL ,
-memberName VARCHAR(20) NOT NULL ,
-birthday VARCHAR(10),
-tel varchar(20)
+create index boardID
+    on COMMENT (boardID);
+
+create table LIKEY
+(
+    userID  varchar(20) not null,
+    boardID int         not null,
+    constraint LIKEY_USER_userID_fk
+        foreign key (userID) references USER (userID),
+    constraint likey_ibfk_1
+        foreign key (boardID) references BOARD (boardID)
 );
+
+create index boardID
+    on LIKEY (boardID);
 ```
 
 
